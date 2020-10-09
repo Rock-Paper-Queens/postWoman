@@ -1,6 +1,8 @@
 import { combineReducers } from "redux";
 import { reducer as formReducer } from "redux-form";
 import postReducer from "./postReducer";
+import settingReducer from "./settingReducer";
+import searchReducer from "./searchReducer";
 
 /*
 1. 유저가 세팅에 들어가서, 본인의 유저네임과 다크모드 설정 여부를 결정한다. 
@@ -20,7 +22,7 @@ local : replies : isOpen
 
 // NOTE : Global vs local
 Global State 
-local stat
+local state
 
 4. 유저가 댓글버튼을 클릭했을 때 이 jsonDB reply 가 post 소속되어있는가 아닌가?
 */
