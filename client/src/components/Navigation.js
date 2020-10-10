@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Modal from "./Modal";
-
+import styled from "styled-components";
+import { createPortal } from "react-dom";
 const NAV_SELECTIONS = {
   comments: "comments",
   search: "search",
@@ -28,7 +29,7 @@ const Navigation = () => {
         }`}
         onClick={() => setSelected(NAV_SELECTIONS.comments)}
       >
-        Comments
+        Comment
       </Link>
       <Link
         to="/search"

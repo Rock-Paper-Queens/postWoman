@@ -1,10 +1,13 @@
 import React from "react";
-// import CreateComment from "./post/CreateComment";
+import CreateComment from "./CreateComment";
 // import CommentList from "./post/CommentList";
 
 const Comment = () => {
-  return <div>{/* <CreateComment />
-      <CommentList /> */}</div>;
+  return (
+    <div>
+      <CreateComment />
+    </div>
+  );
 };
 
 // {
