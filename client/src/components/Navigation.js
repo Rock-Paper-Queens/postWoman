@@ -2,22 +2,14 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Modal from "./Modal";
 
+const NAV_SELECTIONS = {
+  comments: "comments",
+  search: "search",
+};
+
 const Navigation = () => {
-  const [selected, setSelected] = useState("Comments");
+  const [selected, setSelected] = useState(NAV_SELECTIONS.comments);
   const [toggleModal, setToggleModal] = useState(false);
-
-  const onSelection = (e) => {
-    setSelected(e.target.textContent);
-  };
-
-  // QUESTION : 더 효과적인 방법은 없는 것인가......!!!!!!!
-  const commentActive = () => {
-    return selected === "Comments" ? "active" : "";
-  };
-
-  const searchActive = () => {
-    return selected === "Search" ? "active" : "";
-  };
 
   const showModal = () => {
     setToggleModal(true);
@@ -31,15 +23,17 @@ const Navigation = () => {
     <div className="ui secondary pointing menu">
       <Link
         to="/"
-        className={`item ${commentActive()}`}
-        onClick={(e) => onSelection(e)}
+        className={`item ${
+          selected === NAV_SELECTIONS.comments ? "active" : ""
+        }`}
+        onClick={() => setSelected(NAV_SELECTIONS.comments)}
       >
         Comments
       </Link>
       <Link
         to="/search"
-        className={`item ${searchActive()}`}
-        onClick={(e) => onSelection(e)}
+        className={`item ${selected === NAV_SELECTIONS.search ? "active" : ""}`}
+        onClick={() => setSelected(NAV_SELECTIONS.search)}
       >
         Search
       </Link>
