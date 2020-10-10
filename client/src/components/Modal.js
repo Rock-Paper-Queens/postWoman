@@ -1,12 +1,15 @@
 import React from "react";
 import "./Modal.css";
 
-const Modal = ({ handleClose, show, children }) => {
+const Modal = ({ handleClose, show }) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
 
   return (
-    <div className={` ${showHideClassName}`}>
-      <section className="ui container modal-main">
+    <div className={` ${showHideClassName}`} onClick={handleClose}>
+      <section
+        className="ui container modal-main"
+        onClick={(e) => e.stopPropagation()}
+      >
         <h3>Settings</h3>
         <div className="field">
           <label>User Name</label>
@@ -18,8 +21,11 @@ const Modal = ({ handleClose, show, children }) => {
             <label>Dark Mode</label>
           </div>
         </div>
+        <button className="ui button red" onClick={handleClose}>
+          Close
+        </button>
         <button className="ui button primary" onClick={handleClose}>
-          close
+          Submit
         </button>
       </section>
     </div>
