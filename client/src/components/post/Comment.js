@@ -3,7 +3,7 @@ import React from "react";
 // import CommentList from "./post/CommentList";
 
 const Comment = () => {
-  return <div>qwe{/* <CreateComment />
+  return <div>{/* <CreateComment />
       <CommentList /> */}</div>;
 };
 
