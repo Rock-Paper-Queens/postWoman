@@ -3,7 +3,7 @@ import {
   CREATE_REPLY, // -> json placeHolder
   EDIT_REPLY,
   DELETE_REPLY,
-} from "./type";
+} from "../actions/type";
 
 export default (state = {}, action) => {
   switch (action.type) {
