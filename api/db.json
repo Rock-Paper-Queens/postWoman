@@ -1,9 +1,46 @@
 {
-	"streams": [
-		{
-			"userName": "test1",
-			"content": "test1",
-			"id": 1
-		}
-	]
+  "comments": [
+    {
+      "userName": "test1",
+      "content": "asld asdlkjga skjhkas ha jung asl",
+      "id": 1,
+      "img-url": "http://alsdkfjalkdsjfl.com",
+      "likes": 34,
+      "reply": [
+        {
+          "userName": "paul",
+          "content": "donjoe",
+          "id": 2,
+          "likes": 34
+        },
+        {
+          "userName": "hailey",
+          "content": "Redux is horrible!",
+          "id": 2,
+          "likes": 34
+        }
+      ]
+    },
+    {
+      "userName": "Si Choi",
+      "content": "아 제가 그냥 말을 하면 되는 건가요? 그렇게 입력을 하시면 어떡해요...",
+      "id": 2,
+      "img-url": "http://alsdkfjalkdsjfl.com",
+      "likes": 100,
+      "reply": [
+        {
+          "userName": "Si Choi",
+          "content": "양같이 순수한 사람이 되길....",
+          "id": 2,
+          "likes": 34
+        },
+        {
+          "userName": "paul",
+          "content": "또 헛소리 하네...",
+          "id": 2,
+          "likes": 34
+        }
+      ]
+    }
+  ]
 }
