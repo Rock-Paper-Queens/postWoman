@@ -1,11 +1,12 @@
 import React from "react";
+import { createPortal } from "react-dom";
 import "./Modal.css";
 
 const Modal = ({ handleClose, show }) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
 
-  return (
-    <div className={` ${showHideClassName}`} onClick={handleClose}>
+  return createPortal(
+    <div className={`${showHideClassName}`} onClick={handleClose}>
       <section
         className="ui container modal-main"
         onClick={(e) => e.stopPropagation()}
@@ -28,7 +29,8 @@ const Modal = ({ handleClose, show }) => {
           Submit
         </button>
       </section>
-    </div>
+    </div>,
+    document.querySelector("#setting")
   );
 };
 

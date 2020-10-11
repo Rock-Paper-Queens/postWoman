@@ -4,7 +4,7 @@ import { Field, reduxForm } from "redux-form";
 const CommentForm = () => {
   return (
     <form className="ui form">
-      {/* <Field name="comment" label="write comment" /> */}
+      <Field name="commentText" component="input" type="text" />
       <button className="ui button primary">Post</button>
     </form>
   );
@@ -12,3 +12,4 @@ const CommentForm = () => {
 export default reduxForm({
   form: "commentForm", // QUESTION 얜 정체가 뭐지..?
 })(CommentForm);
+
