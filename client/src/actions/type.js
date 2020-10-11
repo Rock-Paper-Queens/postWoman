@@ -2,6 +2,7 @@
 //NOTE 글로벌 세팅을 수정해줍니다.
 export const SET_USERNAME = "SET_USERNAME";
 export const SET_DARKMODE = "SET_DARKMODE";
+export const SET_SELECTED = "SET_SELECTED";
 
 /* Fetch */
 //NOTE 데이터를 불러옵니다.

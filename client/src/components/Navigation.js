@@ -1,16 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
 import { Link } from "react-router-dom";
+import { setSelected } from "../actions/settings";
+import { connect } from "react-redux";
+
 import Modal from "./Modal";
-import styled from "styled-components";
-import { createPortal } from "react-dom";
-const NAV_SELECTIONS = {
+
+export const NAV_SELECTIONS = {
   comments: "comments",
   search: "search",
 };
 
-const Navigation = () => {
-  const [selected, setSelected] = useState(NAV_SELECTIONS.comments);
+// app
+
+// header -> navigation (state) useContext(setState)
+// commnet                              | |
+// searchComment ()                saerchComment (prop.setState ) useEffect (())
+// p
+
+const Navigation = ({ currentPath, setSelected }) => {
+  //const [selected, setSelected] = useState(NAV_SELECTIONS.comments);
   const [toggleModal, setToggleModal] = useState(false);
+
+  useEffect(() => {
+    setSelected(NAV_SELECTIONS.comments);
+  }, []);
 
   const showModal = () => {
     setToggleModal(true);
@@ -25,7 +39,7 @@ const Navigation = () => {
       <Link
         to="/"
         className={`item ${
-          selected === NAV_SELECTIONS.comments ? "active" : ""
+          currentPath === NAV_SELECTIONS.comments ? "active" : ""
         }`}
         onClick={() => setSelected(NAV_SELECTIONS.comments)}
       >
@@ -33,7 +47,9 @@ const Navigation = () => {
       </Link>
       <Link
         to="/search"
-        className={`item ${selected === NAV_SELECTIONS.search ? "active" : ""}`}
+        className={`item ${
+          currentPath === NAV_SELECTIONS.search ? "active" : ""
+        }`}
         onClick={() => setSelected(NAV_SELECTIONS.search)}
       >
         Search
@@ -50,7 +66,14 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
+const mapStateToProps = (state) => {
+  // console.log(state);
+  return {
+    currentPath: state.settings.currentPath,
+  };
+};
+
+export default connect(mapStateToProps, { setSelected })(Navigation);
 
 // const container = document.createElement("div");
 // document.body.appendChild(container);
