@@ -1,11 +1,11 @@
 import React from "react";
 
 const ReplyEntry = ({ reply }) => {
-  console.log(reply);
+  // console.log(reply);
   return (
     <div className="comment">
       <a className="avatar">
-        <img src={reply.url} />
+        <img src={reply.thumbnailUrl} />
       </a>
       <div className="content">
         <a className="author">{reply.userName}</a>

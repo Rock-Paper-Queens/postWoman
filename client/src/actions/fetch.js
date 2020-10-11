@@ -3,6 +3,7 @@ import postwoman from "../apis/postwoman";
 import jsonplaceholder from "../apis/jsonplaceholder";
 import _ from "lodash";
 
+// ANCHOR
 _.mixin({
   mergeByKey: function (arr1, arr2, key) {
     let criteria = {};
@@ -26,7 +27,6 @@ export const fetchPost = (id) => async (dispatch) => {
 export const fetchPosts = () => async (dispatch) => {
   const response = await postwoman.get("/comments");
   const response2 = await jsonplaceholder.get("/photos/");
-
   const newResponse = _.mergeByKey(response.data, response2.data, "id");
   // const photos = response2.thumbnailUrl;
   // console.log("response", response.data);
@@ -40,5 +40,5 @@ export const fetchPosts = () => async (dispatch) => {
   
   */
   // console.log(response.data);
-  dispatch({ type: FETCH_POSTS, payload: response.data });
+  dispatch({ type: FETCH_POSTS, payload: newResponse });
 };
