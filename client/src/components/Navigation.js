@@ -11,13 +11,6 @@ export const NAV_SELECTIONS = {
   search: "search",
 };
 
-// app
-
-// header -> navigation (state) useContext(setState)
-// commnet                              | |
-// searchComment ()                saerchComment (prop.setState ) useEffect (())
-// p
-
 const Navigation = ({ currentPath, setSelected }) => {
   //const [selected, setSelected] = useState(NAV_SELECTIONS.comments);
   const [toggleModal, setToggleModal] = useState(false);
@@ -56,9 +49,9 @@ const Navigation = ({ currentPath, setSelected }) => {
       </Link>
 
       <div className="right menu">
-        <a className="ui item" onClick={showModal}>
+        <div className="ui item" onClick={showModal}>
           Settings
-        </a>
+        </div>
       </div>
 
       <Modal show={toggleModal} handleClose={hideModal} />
@@ -105,3 +98,10 @@ const selections = ['Comments', 'Search']
 1. when user clicks navigation the event.target
 2. 
 */
+
+// app
+
+// header -> navigation (state) useContext(setState)
+// commnet                              | |
+// searchComment ()                saerchComment (prop.setState ) useEffect (())
+// p

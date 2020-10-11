@@ -8,3 +8,16 @@
 // } else {
 
 // }
+import React from "react";
+
+const CommentEntry = ({ comment }) => {
+  return (
+    <div>
+      {comment.userName}
+      {comment.content}
+      {comment.likes}
+    </div>
+  );
+};
+
+export default CommentEntry;
