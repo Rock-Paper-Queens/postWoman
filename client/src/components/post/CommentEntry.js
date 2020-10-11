@@ -8,15 +8,51 @@
 // } else {
 
 // }
-import React from "react";
+
+import React, { useState } from "react";
+import ReplyList from "./ReplyList";
 
 const CommentEntry = ({ comment }) => {
+  const [isOpen, setIsOpen] = useState(true);
+  console.log(comment);
+
+  const renderReply = () => {
+    if (isOpen) {
+      return <ReplyList parentId={comment.id} replies={comment.replies} />;
+    } else {
+      return null;
+    }
+  };
+
+  /*
+    display: none -> display: block 
+  */
+  // comment.id === parentId
+  // isOpen -> reply on off
+
+  /*
+    Reply 를 클릭을 했을 때 -> 아래의 replylist 의 style 을 display:none -> block 으로 바꿔준다. 
+
+  */
   return (
-    <div>
-      {comment.userName}
-      {comment.content}
-      {comment.likes}
-    </div>
+    <React.Fragment>
+      <div className="comment">
+        <a className="avatar">
+          <img src={comment.url} />
+        </a>
+        <div className="content">
+          <a className="author">{comment.userName}</a>
+          <div className="metadata">
+            <span className="date">Today at 5:42PM</span>
+          </div>
+          <div className="text">{comment.content}</div>
+          <div className="actions">
+            <a className="reply">Reply</a>
+          </div>
+        </div>
+        {renderReply()}
+      </div>
+    </React.Fragment>
   );
 };
 

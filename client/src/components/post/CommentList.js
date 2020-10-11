@@ -21,11 +21,16 @@ const CommentList = ({ comments, fetchPosts }) => {
     });
   };
 
-  return <div>{renderComments()}</div>;
+  return (
+    <div className="ui comments">
+      <h3 className="ui dividing header">Comments</h3>
+      {renderComments()}
+    </div>
+  );
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
+  // console.log(state);
   return {
     comments: state.posts,
   };
